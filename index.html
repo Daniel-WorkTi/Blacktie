@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Black Tie - Boate</title>
+    <link rel="icon" type="image/png" href="Fotos/logo2.png">
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
 </head>
 <body>
-    <div class="global-bg-texture"></div>
     <div class="top-bar">
         <div class="top-bar-bg"></div>
         <div class="top-bar-content">
@@ -76,7 +76,10 @@
             </div>
         </section>
         <section class="entertainment-section">
-            <h2 class="entertainment-title"><span class="entertainment-title-gold">Melhor Entretenimento</span> <span class="entertainment-title-white">em Portugal</span></h2>
+            <div class="section-bg-texture"></div>
+            <h2 class="entertainment-title">
+                <span class="entertainment-title-gold">Melhor Entretenimento</span> <span class="entertainment-title-white">em Portugal</span>
+            </h2>
             <div class="carousel-3d-container">
                 <div class="cardList">
                     <button class="cardList__btn btn btn--left">
@@ -111,17 +114,6 @@
                         </div>
                     </button>
                 </div>
-                <div class="app__bg">
-                    <div class="app__bg__image current--image">
-                        <img src="Fotos/img1.png" alt="" />
-                    </div>
-                    <div class="app__bg__image next--image">
-                        <img src="Fotos/img2.png" alt="" />
-                    </div>
-                    <div class="app__bg__image previous--image">
-                        <img src="Fotos/img5.png" alt="" />
-                    </div>
-                </div>
             </div>
             <svg class="icons" style="display: none;">
                 <symbol id="arrow-left" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
@@ -148,11 +140,188 @@
                 </div>
             </div>
         </section>
+        <section class="new-section">
+            <div class="section-bg-texture"></div>
+            <div class="new-section-content">
+                <div class="section-left">
+                    <h2 class="section-left-title">A Experiência Noturna Que Você <span class="section-title-gold">Sempre Sonhou</span></h2>
+                </div>
+                <div class="section-right">
+                    <div class="video-container">
+                        <img src="Fotos/sessao3.png" alt="Black Tie Experience" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="instagram-section">
+            <div class="instagram-container">
+                <div class="instagram-header">
+                    <div class="instagram-profile">
+                        <a href="https://www.instagram.com/blacktieclub_pt/" target="_blank" class="instagram-avatar-link">
+                            <div class="instagram-avatar">
+                                <img src="Fotos/logo1.jpg" alt="Black Tie Instagram" />
+                            </div>
+                        </a>
+                        <div class="instagram-info">
+                            <a href="https://www.instagram.com/blacktieclub_pt/" target="_blank" class="instagram-username-link">
+                                <h3 class="instagram-username">@blacktieclub_pt</h3>
+                            </a>
+                            <div class="instagram-stats">
+                                <div class="instagram-stat">
+                                    <span class="stat-number">1.500</span>
+                                    <span class="stat-label">seguidores</span>
+                                </div>
+                                <div class="instagram-stat">
+                                    <span class="stat-number">8</span>
+                                    <span class="stat-label">seguindo</span>
+                                </div>
+                            </div>
+                            <p class="instagram-bio">A experiência noturna que você sempre sonhou</p>
+                            <a href="https://www.instagram.com/blacktieclub_pt/" target="_blank" class="instagram-follow-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        Seguir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="instagram-posts">
+                    <a href="https://www.instagram.com/blacktieclub_pt/" target="_blank" class="instagram-post">
+                        <img src="Fotos/ig/post1.webp" alt="Post 1" />
+                    </a>
+                    <a href="https://www.instagram.com/blacktieclub_pt/" target="_blank" class="instagram-post">
+                        <img src="Fotos/ig/post2.webp" alt="Post 2" />
+                    </a>
+                    <a href="https://www.instagram.com/blacktieclub_pt/" target="_blank" class="instagram-post">
+                        <img src="Fotos/ig/2.webp" alt="Post 3" />
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="services-section">
+            <div class="services-container">
+                <h2 class="services-title">
+                    <span class="services-title-gold">Onde Diversão</span> <span class="services-title-white">Encontra o desejo</span>
+                </h2>
+                <div class="services-topics-grid">
+                    <div class="service-topic">
+                        <div class="topic-image">
+                            <img src="Fotos/topicos/1.png" alt="Exclusividade" />
+                        </div>
+                        <div class="topic-content">
+                            <h3 class="topic-title">1. Exclusividade</h3>
+                            <p class="topic-description">Ambiente reservado, controlo de acesso e experiência discreta. O cliente vem por isso, não por curiosidade.</p>
+                        </div>
+                    </div>
+                    <div class="service-topic">
+                        <div class="topic-image">
+                            <img src="Fotos/topicos/2.png" alt="Espetáculos Profissionais" />
+                        </div>
+                        <div class="topic-content">
+                            <h3 class="topic-title">2. Espetáculos Profissionais</h3>
+                            <p class="topic-description">Bailarinas experientes, coreografias ensaiadas, qualidade de palco, luz e som. Isto diferencia de casas amadoras.</p>
+                        </div>
+                    </div>
+                    <div class="service-topic">
+                        <div class="topic-image">
+                            <img src="Fotos/topicos/3.png" alt="Shows Privados" />
+                        </div>
+                        <div class="topic-content">
+                            <h3 class="topic-title">3. Shows Privados</h3>
+                            <p class="topic-description">Contacto reservado, espaço fechado, experiência personalizada. É um dos serviços de maior valor.</p>
+                        </div>
+                    </div>
+                    <div class="service-topic">
+                        <div class="topic-image">
+                            <img src="Fotos/topicos/4.png" alt="Ambiente de Luxo" />
+                        </div>
+                        <div class="topic-content">
+                            <h3 class="topic-title">4. Ambiente de Luxo</h3>
+                            <p class="topic-description">Design, conforto, limpeza, atendimento. O público certo filtra o sítio pelo visual.</p>
+                        </div>
+                    </div>
+                    <div class="service-topic">
+                        <div class="topic-image">
+                            <img src="Fotos/topicos/5.png" alt="Privacidade e Confiança" />
+                        </div>
+                        <div class="topic-content">
+                            <h3 class="topic-title">5. Privacidade e Confiança</h3>
+                            <p class="topic-description">Discrição total, anonimato, respeito ao cliente. Sem isto, o cliente não entra.</p>
+                        </div>
+                    </div>
+                    <div class="service-topic">
+                        <div class="topic-image">
+                            <img src="Fotos/topicos/6.png" alt="Experiência Completa" />
+                        </div>
+                        <div class="topic-content">
+                            <h3 class="topic-title">6. Experiência Completa</h3>
+                            <p class="topic-description">Não é só um show: bebida, música, atenção, ritmo da noite. O cliente compra a noite inteira.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <script src="https://player.vimeo.com/api/player.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </main>
-    <footer>
-        <p>&copy; 2025 Black Tie - Boate</p>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <a href="/">
+                            <img src="Fotos/logo2.png" alt="Black Tie" />
+                        </a>
+                    </div>
+                    <div class="footer-contact">
+                        <div class="footer-phone">
+                            <a href="tel:+351213545286">+351 213 545 286</a>
+                        </div>
+                        <div class="footer-address">
+                            <a href="https://www.google.com/maps/search/RUA+MARTENS+FERRÃO,+LISBOA,+PORTUGAL" target="_blank">
+                                RUA MARTENS FERRÃO, LISBOA, PORTUGAL
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-map">
+                    <iframe 
+                        src="https://www.google.com/maps?q=RUA+MARTENS+FERRÃO,+LISBOA,+PORTUGAL&output=embed&zoom=15" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Localização Black Tie - Rua Martens Ferrão, Lisboa">
+                    </iframe>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Serviços</a>
+                    <a href="#">Entretenimento</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/blacktieclub_pt/" target="_blank" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Black Tie - Boate. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
     </footer>
     <script>
         window.addEventListener('scroll', function() {
@@ -322,6 +491,39 @@
 
         if (document.querySelector(".carousel-3d-container")) {
             waitForImages();
+        }
+
+        // Drag to scroll para o carrossel de serviços
+        const servicesGrid = document.querySelector('.services-topics-grid');
+        if (servicesGrid) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            servicesGrid.addEventListener('mousedown', (e) => {
+                isDown = true;
+                servicesGrid.style.cursor = 'grabbing';
+                startX = e.pageX - servicesGrid.offsetLeft;
+                scrollLeft = servicesGrid.scrollLeft;
+            });
+
+            servicesGrid.addEventListener('mouseleave', () => {
+                isDown = false;
+                servicesGrid.style.cursor = 'grab';
+            });
+
+            servicesGrid.addEventListener('mouseup', () => {
+                isDown = false;
+                servicesGrid.style.cursor = 'grab';
+            });
+
+            servicesGrid.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - servicesGrid.offsetLeft;
+                const walk = (x - startX) * 2; // Velocidade do scroll
+                servicesGrid.scrollLeft = scrollLeft - walk;
+            });
         }
     </script>
 </body>

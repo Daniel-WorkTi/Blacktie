@@ -96,65 +96,16 @@ body {
     position: relative;
 }
 
-.global-bg-texture {
+.section-bg-texture {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    background-image: 
-        /* Botões centrais dos diamantes */
-        radial-gradient(circle at 25% 25%, rgba(139, 0, 0, 0.08) 0%, rgba(139, 0, 0, 0.04) 2px, transparent 4px),
-        radial-gradient(circle at 75% 25%, rgba(139, 0, 0, 0.08) 0%, rgba(139, 0, 0, 0.04) 2px, transparent 4px),
-        radial-gradient(circle at 25% 75%, rgba(139, 0, 0, 0.08) 0%, rgba(139, 0, 0, 0.04) 2px, transparent 4px),
-        radial-gradient(circle at 75% 75%, rgba(139, 0, 0, 0.08) 0%, rgba(139, 0, 0, 0.04) 2px, transparent 4px),
-        radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.08) 0%, rgba(139, 0, 0, 0.04) 2px, transparent 4px),
-        /* Linhas diagonais para formar diamantes */
-        repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 20px,
-            rgba(139, 0, 0, 0.06) 20px,
-            rgba(139, 0, 0, 0.06) 21px,
-            transparent 21px,
-            transparent 40px
-        ),
-        repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 20px,
-            rgba(139, 0, 0, 0.06) 20px,
-            rgba(139, 0, 0, 0.06) 21px,
-            transparent 21px,
-            transparent 40px
-        ),
-        /* Linhas horizontais e verticais */
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 40px,
-            rgba(139, 0, 0, 0.04) 40px,
-            rgba(139, 0, 0, 0.04) 41px,
-            transparent 41px,
-            transparent 80px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 40px,
-            rgba(139, 0, 0, 0.04) 40px,
-            rgba(139, 0, 0, 0.04) 41px,
-            transparent 41px,
-            transparent 80px
-        );
-    background-size: 
-        80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px,
-        80px 80px, 80px 80px,
-        80px 80px, 80px 80px;
-    background-position: 0 0, 40px 0, 0 40px, 40px 40px, 20px 20px, 0 0, 0 0, 0 0, 0 0;
+    z-index: 0;
     pointer-events: none;
-    opacity: 0.6;
+    opacity: 0.12;
+    mix-blend-mode: overlay;
 }
 
 main {
@@ -672,7 +623,9 @@ nav {
     text-align: center;
     min-height: 50vh;
     position: relative;
+    overflow: hidden;
 }
+
 
 .entertainment-title {
     font-family: "PP Editorial New", serif;
@@ -684,6 +637,111 @@ nav {
     margin: 0 auto 5rem;
     max-width: 1200px;
     display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.title-decoration-wrapper {
+    position: absolute;
+    left: -300px;
+    top: 0;
+    width: 400px;
+    height: auto;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.title-decoration-img-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    filter: blur(25px) saturate(1.2);
+    opacity: 0.8;
+    z-index: 0;
+    mask-image: 
+        linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 8%, rgba(0,0,0,0.6) 15%, transparent 25%, transparent 75%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,0.9) 92%, rgba(0,0,0,1) 100%);
+    -webkit-mask-image: 
+        linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 8%, rgba(0,0,0,0.6) 15%, transparent 25%, transparent 75%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,0.9) 92%, rgba(0,0,0,1) 100%);
+}
+
+.title-decoration-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: saturate(1.2);
+    opacity: 1;
+    z-index: 1;
+    mask-image: 
+        linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0.1) 92%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 3%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0.2) 97%, transparent 100%);
+    -webkit-mask-image: 
+        linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0.1) 92%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 3%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0.2) 97%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+}
+
+/* Section Decorations - Reutilizáveis */
+.section-decoration-wrapper {
+    position: absolute;
+    width: 400px;
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Decoração no centro direito - forma vertical/rotacionada */
+.decoration-center-right {
+    right: -250px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+    width: 400px;
+}
+
+/* Decoração no centro esquerdo - forma horizontal */
+.decoration-center-left {
+    left: -250px;
+    top: 50%;
+    transform: translateY(-50%) rotate(15deg);
+    width: 400px;
+}
+
+.section-decoration-img-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    filter: blur(25px) saturate(1.2);
+    opacity: 0.8;
+    z-index: 0;
+    mask-image: 
+        linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 8%, rgba(0,0,0,0.6) 15%, transparent 25%, transparent 75%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,0.9) 92%, rgba(0,0,0,1) 100%);
+    -webkit-mask-image: 
+        linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 8%, rgba(0,0,0,0.6) 15%, transparent 25%, transparent 75%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,0.9) 92%, rgba(0,0,0,1) 100%);
+}
+
+.section-decoration-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: saturate(1.2);
+    opacity: 1;
+    z-index: 1;
+    mask-image: 
+        linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0.1) 92%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 3%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0.2) 97%, transparent 100%);
+    -webkit-mask-image: 
+        linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0.1) 92%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 3%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0.2) 97%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
 }
 
 .entertainment-title-gold {
@@ -703,6 +761,7 @@ nav {
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
+    z-index: 1;
 }
 
 :root {
@@ -1039,6 +1098,205 @@ nav {
     }
 }
 
+/* New Section */
+.new-section {
+    background-color: #000;
+    padding: 6rem 3rem;
+    min-height: 50vh;
+    width: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.new-section-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.section-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.section-left-title {
+    font-family: "PP Editorial New", serif;
+    font-size: 4rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title-gold {
+    color: #FFD700;
+}
+
+.section-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 550px;
+    border-radius: 20px;
+    border: 1px solid #FFD700;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    animation: borderGlow 3s ease-in-out infinite;
+    transform: translateX(25%);
+    z-index: 1;
+}
+
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700, #FFA500);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: borderShine 3s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.video-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.video-container video,
+.video-container iframe,
+.video-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 19px;
+    display: block;
+    border: none;
+    background: #000;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.video-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: 19px;
+}
+
+/* Esconder logo e elementos do YouTube */
+.video-container iframe {
+    filter: brightness(1);
+    -webkit-filter: brightness(1);
+}
+
+/* Esconder qualquer overlay ou controles do YouTube */
+.video-container {
+    position: relative;
+}
+
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Garantir que o vídeo fique em loop e sem controles */
+.video-container iframe[src*="youtube"] {
+    pointer-events: none;
+}
+
+@keyframes borderGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3),
+                    0 0 40px rgba(255, 215, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.6),
+                    0 0 60px rgba(255, 215, 0, 0.3),
+                    0 0 80px rgba(255, 215, 0, 0.1);
+    }
+}
+
+@keyframes borderShine {
+    0%, 100% {
+        background-position: 0% 50%;
+        opacity: 0.6;
+    }
+    50% {
+        background-position: 100% 50%;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 968px) {
+    .new-section-content {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .section-left,
+    .section-right {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .section-left-title {
+        font-size: 3rem;
+        text-align: center;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2rem;
@@ -1049,6 +1307,742 @@ nav {
     .hero-btn {
         font-size: 1rem;
         padding: 0.875rem 2rem;
+    }
+}
+
+/* Instagram Section */
+.instagram-section {
+    background: #000;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.25) 0%, rgba(255, 215, 0, 0.15) 15%, transparent 40%),
+        radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.12) 20%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.18) 0%, rgba(255, 215, 0, 0.1) 25%, transparent 60%),
+        radial-gradient(circle at 60% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 30%),
+        repeating-linear-gradient(45deg, transparent 0px, transparent 2px, rgba(255, 215, 0, 0.08) 2px, rgba(255, 215, 0, 0.08) 3px, transparent 3px, transparent 5px),
+        repeating-linear-gradient(-45deg, transparent 0px, transparent 2px, rgba(255, 215, 0, 0.06) 2px, rgba(255, 215, 0, 0.06) 3px, transparent 3px, transparent 5px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 12px 12px, 12px 12px;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(1px);
+    opacity: 0.9;
+}
+
+.instagram-section::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+    width: 280px;
+    height: 280px;
+    background: 
+        radial-gradient(circle at 35% 35%, rgba(255, 215, 0, 0.22) 0%, rgba(255, 215, 0, 0.14) 18%, transparent 42%),
+        radial-gradient(circle at 65% 65%, rgba(255, 215, 0, 0.18) 0%, rgba(255, 215, 0, 0.11) 22%, transparent 48%),
+        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 55%),
+        repeating-linear-gradient(45deg, transparent 0px, transparent 2px, rgba(255, 215, 0, 0.07) 2px, rgba(255, 215, 0, 0.07) 3px, transparent 3px, transparent 5px),
+        repeating-linear-gradient(-45deg, transparent 0px, transparent 2px, rgba(255, 215, 0, 0.05) 2px, rgba(255, 215, 0, 0.05) 3px, transparent 3px, transparent 5px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 12px 12px, 12px 12px;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(1px);
+    opacity: 0.85;
+}
+
+.instagram-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.instagram-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.instagram-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.instagram-avatar-link {
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.instagram-avatar-link:hover {
+    transform: scale(1.05);
+}
+
+.instagram-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    padding: 2px;
+    background: rgba(255, 215, 0, 0.1);
+    flex-shrink: 0;
+    transition: border-color 0.3s ease;
+}
+
+.instagram-avatar-link:hover .instagram-avatar {
+    border-color: rgba(255, 215, 0, 0.6);
+}
+
+@keyframes goldShine {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.instagram-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.instagram-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.instagram-username-link {
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-username-link:hover {
+    opacity: 0.8;
+}
+
+.instagram-username {
+    font-family: "Termina Light", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.instagram-stats {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.instagram-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.stat-number {
+    font-family: "Termina Light", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1;
+}
+
+.stat-label {
+    font-family: "Termina Light", sans-serif;
+    font-size: 0.75rem;
+    color: #fff;
+    opacity: 0.6;
+    text-transform: lowercase;
+}
+
+.instagram-bio {
+    font-family: "Termina Light", sans-serif;
+    font-size: 0.9rem;
+    color: #fff;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.instagram-follow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: "Termina Light", sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: fit-content;
+    margin-top: 0.5rem;
+}
+
+.instagram-follow-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.instagram-follow-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.instagram-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.instagram-post {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    display: block;
+}
+
+.instagram-post:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.02);
+}
+
+.instagram-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-post:first-child img {
+    object-fit: contain;
+    object-position: center center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.instagram-post:hover img {
+    opacity: 0.8;
+}
+
+
+@media (max-width: 768px) {
+    .instagram-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .instagram-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .instagram-username {
+        font-size: 2rem;
+    }
+    
+    .instagram-posts {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Services Section */
+.services-section {
+    background: #000;
+    padding: 6rem 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.services-title {
+    font-family: "PP Editorial New", serif;
+    font-size: 4rem;
+    font-weight: 400;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: left;
+    margin: 0;
+    max-width: 1200px;
+    position: relative;
+    z-index: 1;
+}
+
+.services-title-gold {
+    color: #FFD700;
+}
+
+.services-title-white {
+    color: #fff;
+}
+
+.services-topics-grid {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 4rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 215, 0, 0.4) transparent;
+    padding: 2rem 1rem 2rem 0;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+    user-select: none;
+}
+
+.services-topics-grid:active {
+    cursor: grabbing;
+}
+
+.services-topics-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.services-topics-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.services-topics-grid::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.5);
+    border-radius: 3px;
+}
+
+.services-topics-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 215, 0, 0.7);
+}
+
+.service-topic {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-width: 380px;
+    max-width: 380px;
+    height: 500px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.service-topic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.service-topic:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+.service-topic:hover::before {
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.topic-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.topic-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.service-topic:hover .topic-image img {
+    transform: scale(1.1);
+}
+
+.topic-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.topic-title {
+    font-family: "PP Editorial New", serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #FFD700;
+    margin: 0;
+    letter-spacing: 1px;
+    line-height: 1.3;
+}
+
+.topic-description {
+    font-family: "Termina Light", sans-serif;
+    font-size: 0.95rem;
+    color: #fff;
+    line-height: 1.7;
+    margin: 0;
+    opacity: 0.85;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-icon {
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.service-name {
+    font-family: "PP Editorial New", serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #FFD700;
+    margin: 0 0 1rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.service-description {
+    font-family: "Termina Light", sans-serif;
+    font-size: 0.95rem;
+    color: #fff;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 968px) {
+    .services-topics-grid {
+        gap: 2rem;
+        padding: 1.5rem 1rem 1.5rem 0;
+    }
+    
+    .service-topic {
+        min-width: 320px;
+        max-width: 320px;
+        height: 450px;
+        padding: 1.5rem;
+    }
+    
+    .topic-title {
+        font-size: 1.5rem;
+    }
+    
+    .topic-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-section {
+        padding: 4rem 2rem;
+    }
+    
+    .services-title {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .services-topics-grid {
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    
+    .service-topic {
+        padding: 1.5rem 0;
+    }
+    
+    .topic-title {
+        font-size: 1.5rem;
+    }
+    
+    .topic-description {
+        font-size: 0.9rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Footer */
+.main-footer {
+    background: #000;
+    padding: 4rem 3rem 2rem;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    position: relative;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.footer-logo {
+    width: 150px;
+    height: auto;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-phone a,
+.footer-address a {
+    font-family: "Termina Light", sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+}
+
+.footer-phone a:hover,
+.footer-address a:hover {
+    color: #FFD700;
+}
+
+.footer-map {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.footer-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    font-family: "Termina Light", sans-serif;
+    font-size: 0.9rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    opacity: 0.8;
+}
+
+.footer-links a:hover {
+    color: #FFD700;
+    opacity: 1;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    color: #FFD700;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: #FFD700;
+    transform: translateY(-2px);
+}
+
+.footer-copyright {
+    text-align: center;
+}
+
+.footer-copyright p {
+    font-family: "Termina Light", sans-serif;
+    font-size: 0.85rem;
+    color: #fff;
+    opacity: 0.6;
+    margin: 0;
+}
+
+@media (max-width: 968px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .footer-map {
+        height: 250px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
